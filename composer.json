@@ -1,0 +1,6 @@
+{
+    "name": "doumbis/arax",
+    "autoload": {
+        "psr-4": { "Arax\\": "src/" }
+    }
+}
