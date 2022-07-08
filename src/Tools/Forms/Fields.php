@@ -14,4 +14,16 @@ class Fields
     protected $exclude;
     protected $callback;
     protected $error;
+    protected $name;
+    /**
+     * @var bool
+     */
+    protected $valid;
+
+
+
+
+    
+
+    
 }

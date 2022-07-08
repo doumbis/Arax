@@ -11,7 +11,8 @@ class CharField extends Fields
         string $label = null,
         array $in = [],
         array $exclude = [],
-        $callback = null
+        $callback = null,
+        string $name = null
     ) {
         $this->min_length = $min_length;
         $this->max_length = $max_length;
@@ -19,10 +20,13 @@ class CharField extends Fields
         $this->in = $in;
         $this->exclude = $exclude;
         $this->callback = $callback;
+        $this->name = $name;
     }
 
 
-    public function clean_data()
-    {
+    public function verify_input($input=[]): void{
+        $this->valid = false;
+
+
     }
 }
