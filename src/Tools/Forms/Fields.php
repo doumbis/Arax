@@ -15,10 +15,17 @@ class Fields
     protected $callback;
     protected $error;
     protected $name;
+    protected $required;
     /**
      * @var bool
      */
     protected $valid;
+    protected $msg_error;
+
+
+    public function get_error(): string{
+        return $this->msg_error;
+    }
 
 
 

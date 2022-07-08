@@ -6,9 +6,9 @@ class IntegerField extends Fields
 {
 
     public function __construct(
+        bool $required = true,
         int $min = null,
         int $max = null,
-        string $label = null,
         array $in = [],
         array $exclude = [],
         $callback = null,
@@ -16,11 +16,11 @@ class IntegerField extends Fields
     ) {
         $this->min = $min;
         $this->max = $max;
-        $this->label = $label;
         $this->in = $in;
         $this->exclude = $exclude;
         $this->callback = $callback;
         $this->name = $name;
+        $this->required = $required;
     }
 
 
