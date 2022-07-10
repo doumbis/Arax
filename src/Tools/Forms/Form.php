@@ -12,18 +12,21 @@ class Form{
      */
     private $variables;
     private $errors;
+    private $data;
 
     public function __construct(array $post=[])
     {
         $this->post_value = $post;
         $this->variables = [];
         $this->errors = [];
+        $this->data = [];
     }
 
 
     public function is_valid(){
         $this->variables = self::get_variable($this);
         $this->errors = [];
+        $this->data = [];
         if(sizeof($this->variables) == 0){
             return false;
         }
@@ -34,7 +37,14 @@ class Form{
             if($valid == false){
                 $invalid++;
                 $this->errors[] = $obj->get_error();
+            }else{
+                if($obj->get_value() != null){
+                    $this->data[$name] = $obj->get_value();
+                }
             }
+        }
+        if($invalid > 0){
+            $this->data = [];
         }
         return $invalid == 0 ? true: false;
     }
@@ -42,6 +52,10 @@ class Form{
 
     public function errors_msg(): array{
         return $this->errors;
+    }
+
+    public function clean_data():array{
+        return $this->data;
     }
 
 

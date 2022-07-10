@@ -2,5 +2,8 @@
     "name": "doumbis/arax",
     "autoload": {
         "psr-4": { "Arax\\": "src/" }
+    },
+    "require": {
+        "php" : ">= 8.0"
     }
 }

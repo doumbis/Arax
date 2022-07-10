@@ -28,6 +28,8 @@ class CharField extends Fields
 
     public function verify_input($var, $input=[]): bool{
         $this->msg_error = "";
+        $this->value = null;
+
         if($this->name == null){
             $this->name = $var;
         }
@@ -87,6 +89,10 @@ class CharField extends Fields
                 return false;
             }
         }
+        $this->value = $data;
         return true;
     }
+
+
+    
 }

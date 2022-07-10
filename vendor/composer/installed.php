@@ -3,7 +3,7 @@
         'name' => 'doumbis/arax',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'c2cc21de5f388ab5a4b97f2e6b744534e5424328',
+        'reference' => '6af36c0d87d85e738ef7333241b58e663bb6e107',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'doumbis/arax' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'c2cc21de5f388ab5a4b97f2e6b744534e5424328',
+            'reference' => '6af36c0d87d85e738ef7333241b58e663bb6e107',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

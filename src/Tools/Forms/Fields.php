@@ -27,6 +27,9 @@ class Fields
         return $this->msg_error;
     }
 
+    public function get_value(): mixed{
+        return $this->value;
+    }
 
 
 
