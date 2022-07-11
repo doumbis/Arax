@@ -16,6 +16,7 @@ class Fields
     protected $error;
     protected $name;
     protected $required;
+    protected $strip;
     /**
      * @var bool
      */

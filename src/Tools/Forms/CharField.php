@@ -13,7 +13,8 @@ class CharField extends Fields
         array $in = [],
         array $exclude = [],
         $callback = null,
-        string $name = null
+        string $name = null,
+        bool $strip = true,
     ) {
         $this->min_length = $min_length;
         $this->max_length = $max_length;
@@ -22,6 +23,7 @@ class CharField extends Fields
         $this->callback = $callback;
         $this->name = $name;
         $this->required = $required;
+        $this->strip = $strip;
         
     }
 
@@ -58,8 +60,9 @@ class CharField extends Fields
             $this->msg_error = "The field ". $this->name . ' must be a string';
             return false;
         }
+        $data = $this->strip ? trim($data) : $data;
         if($data == ''){
-            $this->msg_error = "The field ". $this->name . ' is empty';
+            $this->msg_error = "The field ". $this->name . ' is required';
             return false;
         }
 
