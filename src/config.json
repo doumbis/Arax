@@ -1,0 +1,16 @@
+{
+    "appName": "Arax project",
+    "uri": "http://127.0.0.1",
+    
+    "modules": {
+        "dbConnect" : {
+            "serverType": "mysql",
+            "ServerHost": "127.0.0.1",
+            "ServerPort": "3306",
+            "userName": "",
+            "password": "",
+            "dbName": "araxDb"
+            
+        }
+    }
+}

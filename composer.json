@@ -1,0 +1,18 @@
+{
+    "name": "doumbis/arax",
+    "description": "framework php",
+    "authors": [
+        {
+            "name": "doumbis",
+            "email": "admoon28@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "8.*"
+    },
+
+    "autoload": {
+        "psr-4": {"Arax\\": "src/"}
+    }
+
+}
