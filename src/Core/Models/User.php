@@ -4,7 +4,7 @@ namespace Arax\Core\Models;
 
 use Arax\Core\Sql\Table;
 
-class Model extends Table
+class User extends Table
 {
 
     private $name;

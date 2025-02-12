@@ -2,12 +2,7 @@
 
 namespace Arax\Core\Tests;
 
-use Arax\Core\Models\Model;
+use Arax\Core\Helpers\Lang;
 
-class User extends Model{
-
-    
-}
-
-
-?>
+$lang = new Lang();
+echo $lang->pathLang;
