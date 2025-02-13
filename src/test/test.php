@@ -10,4 +10,4 @@ use Arax\Core\Sql\Database;
 $lang = new Lang('en');
 print $lang->getMessage('welcome');
 
-DbStarter::createTable('User', 'users', 'This table is used to store users');
+DbStarter::createTable('Student', 'users', 'This table is used to store users');
