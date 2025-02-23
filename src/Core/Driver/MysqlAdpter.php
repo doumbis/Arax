@@ -60,8 +60,9 @@ class MysqlAdapter extends DriverAdapter
     public function update(string $sql, $params = [])
     {
         $this->query($sql, $params);
+        $rowsCount = $this->request->rowCount();
         $this->request = null;
-        return $this->connection->lastInsertId();
+        return $rowsCount;
     }
 
     public function delete(string $sql, $params = [])
@@ -74,25 +75,5 @@ class MysqlAdapter extends DriverAdapter
     public function close()
     {
         $this->connection = null;
-    }
-
-    public function execute()
-    {
-        echo "Executing Mysql database\n";
-    }
-
-    public function createColumn()
-    {
-        echo "Creating column in Mysql database\n";
-    }
-
-    public function alterColumn()
-    {
-        echo "Altering column in Mysql database\n";
-    }
-
-    public function dropColumn()
-    {
-        echo "Dropping column in Mysql database\n";
     }
 }

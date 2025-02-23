@@ -5,7 +5,7 @@ namespace Arax\Core\Models;
 use Arax\Core\Sql\Column;
 use Arax\Core\Sql\Table;
 
-class Model extends Table
+class ModelUser extends Table
 {
 
     public Column $name;
@@ -13,7 +13,7 @@ class Model extends Table
 
     protected function setMeta()
     {
-        $this->tableName = 'users';
+        $this->tableName = 'student';
         $this->description = 'This table is used to store users';
     }
 

@@ -1,5 +1,5 @@
 {
-    "defautConnection": "mysql",
+    "defaultConnection": "mysql",
     "connections": {
         "mysql": {
             "driver": "mysql",
@@ -13,5 +13,8 @@
             "engine": "InnoDB",
             "prefix": ""
         }
+    }, 
+    "migrations": {
+        "directories": []
     }
 }

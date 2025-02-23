@@ -8,10 +8,6 @@ abstract class  DriverAdapter
     abstract public function connect();
     abstract public function query(string $sql, $params = []);
     abstract public function close();
-    abstract public function execute();
-    abstract public function createColumn();
-    abstract public function alterColumn();
-    abstract public function dropColumn();
 
     abstract public function fetch(string $sql, $params = []);
     abstract public function insert(string $sql, $params = []);

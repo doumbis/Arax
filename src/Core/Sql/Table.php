@@ -11,4 +11,10 @@ class Table extends Database
 
     protected function setMeta() {}
     protected function  migrations() {}
+    public function processDDL()
+    {
+        $this->setMeta();
+        echo $this->tableName;
+        echo "\n";
+    }
 }

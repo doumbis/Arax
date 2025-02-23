@@ -14,12 +14,20 @@ class Lang
         $this->changeLang($lang);
     }
 
-    public  function getMessage(string $key): string
+    public  function getMessage(string $key, $param = []): string
     {
         if (!isset($this->dictionary[$key])) {
             throw new \Exception("The key $key does not exist in the language file");
         }
-        return $this->dictionary[$key];
+        if (sizeof($param) == 0) {
+            return $this->dictionary[$key];
+        } else {
+            $text = $this->dictionary[$key];
+            foreach ($param as $name => $value) {
+                $text = str_replace(':' . $name, $value, $text);
+            }
+            return $text;
+        }
     }
 
     public function changeLang(string $lang)

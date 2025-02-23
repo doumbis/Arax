@@ -1,3 +1,6 @@
 {
-    "welcome": "Welcome to ARAX ORM Framework"
+    "welcome": "Welcome to ARAX ORM Framework",
+    "configfileormnotfound": "The config file :path for ORM is not found",
+    "invalidDecodeConfigFileJson": "Improper JSON format in config file :path",
+    "connectionsConfigNotFound": "Connections config not found in config file :path"
 }
