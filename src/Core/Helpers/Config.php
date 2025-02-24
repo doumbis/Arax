@@ -10,7 +10,7 @@ class Config
         // 'connectionName' => ['driver' => 'mysql', 'host' => 'localhost', 'database' => 'test] config
     ];
 
-    public static string $defaultConnection = 'mysql';
+    public static string $defaultConnection = '';
     public static array $directoryModels = [];
 
     private static Lang $lang;
@@ -29,7 +29,7 @@ class Config
         if (!isset($config['connections'])) {
             throw new \Exception(self::$lang->getMessage('connectionsConfigNotFound', ['path' => $path]));
         }
-        self::$defaultConnection = isset($config['defaultConnection']) ?  $config['defaultConnection'] : self::$defaultConnection;
+        self::$defaultConnection = isset($config['defaultConnection']) ?  $config['defaultConnection'] : $config['defaultConnection'];
         self::$drivers = $config['connections'];
         self::$directoryModels = isset($config['migrations']['directories']) ? $config['migrations']['directories'] : [];
     }

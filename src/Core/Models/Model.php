@@ -14,6 +14,7 @@ class Model extends Table
     protected function setMeta()
     {
         $this->tableName = 'users';
+        $this->connection = null; // it uses the default connection in your database.json
         $this->description = 'This table is used to store users';
     }
 

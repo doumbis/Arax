@@ -2,6 +2,7 @@
 
 namespace Arax\Core\Driver;
 
+use Arax\Core\Sql\Column;
 use PDO;
 
 class MysqlAdapter extends DriverAdapter
@@ -75,5 +76,59 @@ class MysqlAdapter extends DriverAdapter
     public function close()
     {
         $this->connection = null;
+    }
+
+
+    // get the type of the column base on SGBD
+    // in our case is Mysql
+    public function getType(int $type, $param = null): string
+    {
+        $columnType = '';
+        switch ($type) {
+            case Column::$BOOLEAN_TYPE:
+                $columnType = 'TINYINT(1)';
+                break;
+            case Column::$INTEGER_TYPE:
+                $columnType = 'INTEGER';
+                break;
+            case Column::$BIGINT_TYPE:
+                $columnType = 'BIGINT';
+                break;
+            case Column::$DOUBLE_TYPE:
+                $columnType = 'DOUBLE';
+                break;
+            case Column::$FLOAT_TYPE:
+                $columnType = 'FLOAT' . ($param == null ? '' : '(' . $param . ')');
+                break;
+            case Column::$VARCHAR_TYPE:
+                $columnType = 'VARCHAR(' . ($param == null ? '255' : $param) . ')';
+                break;
+            case Column::$TEXT_TYPE:
+                $columnType = 'TEXT';
+                break;
+        }
+        return $columnType;
+    }
+    public function createTable() {}
+
+    // column definition
+    public function createColumn(string $name, int $type, int $length = null, int $precision = null, bool $nullable = true, $defaultValue = null): string
+    {
+        $typeColumn = '';
+        $nullableColumn = '';
+        $defaultValueColumn = '';
+        if ($type == Column::$FLOAT_TYPE) {
+            $typeColumn = $this->getType($type, $precision);
+        } elseif ($type == Column::$VARCHAR_TYPE) {
+            $typeColumn = $this->getType($type, $length);
+        } else {
+            $typeColumn = $this->getType($type);
+        }
+        $nullableColumn = $nullable ? 'NULL' : 'NOT NULL';
+        $defaultValueColumn = $defaultValue == null ? '' :  'DEFAULT ' . (($type == Column::$VARCHAR_TYPE || $type == Column::$TEXT_TYPE) ? '"' . $defaultValue . '"' : $defaultValue);
+        $columnDefinition = $name . ' ' . $typeColumn;
+        $columnDefinition .= ' ' . $nullableColumn;
+        $columnDefinition .= ' ' . $defaultValueColumn;
+        return $columnDefinition;
     }
 }

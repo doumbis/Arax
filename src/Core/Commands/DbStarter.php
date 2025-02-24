@@ -49,18 +49,22 @@ class DbStarter
                 if ($file == '.' || $file == '..') {
                     continue;
                 }
+
                 $path = $directory . '/' . $file;
                 require_once $path;
 
                 $allClasses = get_declared_classes();
                 $newClasses = array_diff($allClasses, $classesExluded);
                 $classesExluded = array_merge($classesExluded, $newClasses);
+
                 //$classesModel = array_merge($classesModel, $newClasses);
                 foreach ($newClasses as $classModelAssumption) {
                     $tmpClass = new $classModelAssumption();
                     if ($tmpClass instanceof \Arax\Core\Sql\Table) {
                         $classesModel[] = $classModelAssumption;
                         $tmpClass->processDDL();
+                        print_r($tmpClass);
+                        echo "\n*****************************";
                     }
                 }
             }

@@ -2,10 +2,12 @@
 
 namespace Arax\Core\Sql;
 
+use Arax\Core\Helpers\Config;
+
 class Table extends Database
 {
-    protected $tableName;
-    protected $description;
+    protected string $tableName = '';
+    protected string $description = '';
 
 
 
@@ -14,7 +16,10 @@ class Table extends Database
     public function processDDL()
     {
         $this->setMeta();
-        echo $this->tableName;
-        echo "\n";
+        $this->migrations();
+        if (empty($this->connection)) {
+            $this->connection = Config::$defaultConnection;
+        } else {
+        }
     }
 }

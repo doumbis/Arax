@@ -1,5 +1,5 @@
 {
-    "defaultConnection": "mysql",
+    "defaultConnection": "postgresql",
     "connections": {
         "mysql": {
             "driver": "mysql",

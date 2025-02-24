@@ -14,6 +14,7 @@ class ModelUser extends Table
     protected function setMeta()
     {
         $this->tableName = 'student';
+        $this->connection = 'mysql';
         $this->description = 'This table is used to store users';
     }
 
